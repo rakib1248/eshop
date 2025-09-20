@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      /* styles.css — API Docs Template */
+
+      /* Reset & base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, sans-serif;
+        line-height: 1.6;
+        background: #f9fafb;
+        color: #1f2937;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      /* Header */
+      .site-header {
+        background: #111827;
+        color: #f9fafb;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .site-header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .lead {
+        font-size: 1.125rem;
+        color: #d1d5db;
+      }
+
+      /* Navigation */
+      .toc {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid #e5e7eb;
+      }
+
+      .toc a {
+        text-decoration: none;
+        color: #2563eb;
+        font-weight: 500;
+      }
+
+      .toc a:hover {
+        text-decoration: underline;
+      }
+
+      /* Card sections */
+      .card {
+        background: #fff;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .card h2 {
+        margin-bottom: 0.5rem;
+        color: #111827;
+      }
+
+      .card h3 {
+        margin: 1rem 0 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .muted {
+        color: #6b7280;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .note,
+      .tip {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        background: #fef9c3;
+        border-left: 4px solid #facc15;
+        border-radius: 0.25rem;
+        font-size: 0.9rem;
+      }
+
+      .tip {
+        background: #dcfce7;
+        border-color: #22c55e;
+      }
+
+      /* Tables */
+      .endpoints {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
+      .textCenter{
+        text-align: center !important; 
+
+      }
+
+      .endpoints th,
+      .endpoints td {
+        border: 1px solid #e5e7eb;
+        padding: 0.5rem;
+        text-align: left;
+        font-size: 0.95rem;
+      }
+
+      .endpoints th {
+        background: #f3f4f6;
+      }
+
+      /* Code blocks */
+      pre.code {
+        background: #1e293b;
+        color: #f8fafc;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      pre.code code {
+        font-family: monospace;
+      }
+
+      /* Footer */
+      .site-footer {
+        background: #f3f4f6;
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #374151;
+        margin-top: 2rem;
+        border-top: 1px solid #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>API Documentation</h1>
+        <p class="lead">
+          Category, Brand, Tag — এন্ডপয়েন্টগুলো, কেন আছে ও কিভাবে ব্যবহার করবেন।
+        </p>
+      </div>
+    </header>
+
+    <div class="textCenter">
+
+
+        <nav class="toc container">
+          <a href="https://eshop-production-f5b0.up.railway.app/api/v1/category">Category</a>
+          <a href="https://eshop-production-f5b0.up.railway.app/api/v1/brands">Brand</a>
+          <a href="https://eshop-production-f5b0.up.railway.app/api/v1/tag">Tag</a>
+          
+        </nav>
+    </div>
+
+
+    <main class="container">
+      <section id="category" class="card">
+        <h2>Category</h2>
+        <p class="muted">
+          কেন: প্রোডাক্টসবকে সংগঠিত ও ফিল্টার করার জন্য ক্যাটেগরি দরকার।
+        </p>
+
+        <table class="endpoints">
+          <thead>
+            <tr>
+              <th>HTTP</th>
+              <th>Path</th>
+              <th>বিবরণ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td>/category</td>
+              <td>সকল ক্যাটেগরি লিস্ট পেতে।</td>
+            </tr>
+            <tr>
+              <td>POST</td>
+              <td>/category</td>
+              <td>নতুন ক্যাটেগরি তৈরি। (multipart/form-data — ছবি সহ)</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td>/category/:id</td>
+              <td>একটি স্পেসিফিক ক্যাটেগরি দেখতে।</td>
+            </tr>
+            <tr>
+              <td>PATCH</td>
+              <td>/category/:id</td>
+              <td>ক্যাটেগরি আপডেট (formSupport middleware প্রয়োগ করা)।</td>
+            </tr>
+            <tr>
+              <td>DELETE</td>
+              <td>/category/:id</td>
+              <td>ক্যাটেগরি ডিলিট করা।</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>POST /category — Request (multipart/form-data)</h3>
+    
+
+
+        <h3>Createt feald</h3>
+        <pre class="code">
+{
+  "name": "your category name",
+  "file": "your category image" (optional),
+  
+}</pre
+<p class="note">
+  Note: Slug ফিল্ড <code>automatically generated</code> হয়, আলাদা key প্রয়োজন নেই।
+</p>
+
+        <p class="note">
+          Middleware: <code>categoryMulter</code> (file upload),
+          <code>formSupport</code> (form-data parse for patch)।
+        </p>
+      </section>
+
+      <section id="brand" class="card">
+        <h2>Brand</h2>
+
+        <table class="endpoints">
+          <thead>
+            <tr>
+              <th>HTTP</th>
+              <th>Path</th>
+              <th>বিবরণ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td>/brands</td>
+              <td>সকল ব্র্যান্ড দেখাবে।</td>
+            </tr>
+            <tr>
+              <td>POST</td>
+              <td>/brands</td>
+              <td>নতুন ব্র্যান্ড তৈরি (name, logo[file])।</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td>/brands/:id</td>
+              <td>একটি ব্র্যান্ডের বিস্তারিত।</td>
+            </tr>
+            <tr>
+              <td>PATCH</td>
+              <td>/brands/:id</td>
+              <td>ব্র্যান্ড আপডেট করা।</td>
+            </tr>
+            <tr>
+              <td>DELETE</td>
+              <td>/brands/:id</td>
+              <td>ব্র্যান্ড ডিলিট করা।</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Createt feald</h3>
+        <pre class="code">
+{
+  "name": "your brand name",
+  "file": "your brand image" (optional),
+  
+}</pre
+<p class="note">
+  Note: Slug ফিল্ড <code>automatically generated</code> হয়, আলাদা key প্রয়োজন নেই।
+</p>
+        >
+      </section>
+
+      <section id="tag" class="card">
+        <h2>Tag</h2>
+        <p class="muted">
+          কেন: সহজ সার্চ ও ফিল্টার যেমন "sale", "new", "featured" ইত্যাদি।
+        </p>
+
+        <table class="endpoints">
+          <thead>
+            <tr>
+              <th>HTTP</th>
+              <th>Path</th>
+              <th>বিবরণ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td>/tag</td>
+              <td>ট্যাগ লিস্ট।</td>
+            </tr>
+            <tr>
+              <td>POST</td>
+              <td>/tag</td>
+              <td>নতুন ট্যাগ তৈরি (name)।</td>
+            </tr>
+            <tr>
+              <td>GET</td>
+              <td>/tag/:id</td>
+              <td>একটি ট্যাগের বিস্তারিত।</td>
+            </tr>
+            <tr>
+              <td>PATCH</td>
+              <td>/tag/:id</td>
+              <td>ট্যাগ আপডেট।</td>
+            </tr>
+            <tr>
+              <td>DELETE</td>
+              <td>/tag/:id</td>
+              <td>ট্যাগ ডিলিট।</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h3>Createt feald</h3>
+        <pre class="code">
+{
+  "name": "your tag name",
+  
+  
+}</pre
+<p class="note">
+  Note: Slug ফিল্ড <code>automatically generated</code> হয়, আলাদা key প্রয়োজন নেই।
+</p>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container">All Roght ❤ — API docs BY Rakibbai</div>
+      </footer>
+    </main>
+  </body>
+</html>

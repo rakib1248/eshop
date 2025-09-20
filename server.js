@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
 import brandsRoute from "./router/brandsRouter.js";
 import categoryRoute from "./router/Category.js";
 import tagRoute from "./router/tagRouter.js";
@@ -25,6 +26,9 @@ app.use(cors());
 app.use("/api/v1", brandsRoute);
 app.use("/api/v1", categoryRoute);
 app.use("/api/v1", tagRoute);
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve("./index.html"));
+});
 
 // Listen Server
 
